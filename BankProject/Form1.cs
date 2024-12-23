@@ -11,25 +11,11 @@ namespace BankProject
 
         private void frmBankSys_Load(object sender, EventArgs e)
         {
-            #region Acýklama
+            #region Aciklama
             /*
-            
-            BankAccount
-            otomatik olarak hesap no oluþturulmalý
-            hesap sahibinin ismi girilmeli
-            ilk açýlýþta mutlaka bakiye yüklenmeli
-            hesap sahibinin adý ve ilk bakiye girisi yapýlarak oluþsun
-
-            Parak çekilebilsin (para yoksa transaction iptal olsun)
-
-            Para yatýrabilsin
-
-            InterestEarningAccount (Faiz Getiri Hesabý): mevcut bakiye 500dolardan fazla ise her ay sonu %5 faiz getirisi saðlanýr
-
-            LineOfCreditAccount (Kredi Limit Hesabý): eksi bakiyeye düsebilir ay sonu eksiye düþerse %7 faiz gideri uygulanýr
-            
-            GiftCardAccount (Hediye Kartý Hesabý): Her ay sonu istenirse bir miktar para yatýrma iþlemi yapýlabilir
-
+            InterestEarningAccount (Faiz Getiri Hesabi): mevcut bakiye 500dolardan fazla ise her ay sonu %5 faiz getirisi saglanir
+            LineOfCreditAccount (Kredi Limit Hesabi): eksi bakiyeye dÃ¼sebilir ay sonu eksiye dÃ¼Ã¾erse %7 faiz gideri uygulanir
+            GiftCardAccount (Hediye Karti Hesabi): Her ay sonu istenirse bir miktar para yatirma islemi yapilabilir
              */
             #endregion
 
@@ -42,7 +28,7 @@ namespace BankProject
 
         private void CombolariDoldur()
         {
-            // iþlem tipini cmbye doldur
+            // islem tipini cmbye doldur
             cmbIslemTipi.Items.AddRange(Enum.GetNames(typeof(IslemTipi)));
 
 
@@ -53,7 +39,7 @@ namespace BankProject
 
 
 
-        // bir önceki hesaplarýn verilerini tutabiliyor sadece bir adým daha eskiye gittiðinde veriler gidiyor
+        // bir Ã¶nceki hesaplarÃ½n verilerini tutabiliyor sadece bir adim daha eskiye gittiginde veriler gidiyor
         List<string> acData = new List<string>();
         List<string> acTransaction = new List<string>();
 
@@ -108,7 +94,7 @@ namespace BankProject
                 }
 
                 txtID.Text = hesap.Number;
-                lblMesaj.Text = "Hesap Baþarýyla Oluþturuldu";
+                lblMesaj.Text = "Hesap BaÃ¾arÃ½yla OluÃ¾turuldu";
 
 
                 BakiyeGuncelle();
@@ -172,7 +158,7 @@ namespace BankProject
 
 
 
-        // ay sonu bakiye sadece gift hesabýnda olduðu için gizle göster iþlemi
+        // ay sonu bakiye sadece gift hesabÃ½nda olduÃ°u iÃ§in gizle gÃ¶ster iÃ¾lemi
         private void cmbHesapTuru_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool cvp = (cmbHesapTuru.SelectedIndex == 2) ? true : false;
@@ -191,7 +177,7 @@ namespace BankProject
         {
             int secilenIslemTipi = cmbIslemTipi.SelectedIndex;
 
-            // para cekme 0, para yatýrma 1
+            // para cekme 0, para yatÃ½rma 1
 
             decimal amount = Convert.ToDecimal(txtTutar.Text);
             string note = txtNot.Text;
